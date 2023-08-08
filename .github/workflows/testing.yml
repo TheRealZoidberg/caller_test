@@ -1,11 +1,13 @@
 on:
   workflow_dispatch:
-
-env:
-  SOME_VAR: bla_bla_bla
-  ANOTHER_VAR: stuff_stuff
-
+  
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+        
   print:
     runs-on: ubuntu-latest
     outputs:
@@ -15,7 +17,5 @@ jobs:
       - name: Print inputs passed to the reusable workflow
         id: step1
         run: |
-          echo "some var: $SOME_VAR"
-          echo "some_var=$SOME_VAR" >> $GITHUB_OUTPUT
-          echo "another var: $ANOTHER_VAR"
-          echo "another_var=$ANOTHER_VAR" >> $GITHUB_OUTPUT
+          echo "Python Version: $${{ matrix.python-version }}"
+
