@@ -15,7 +15,9 @@ jobs:
       another_var: ${{ steps.step1.outputs.another_var }}   
     steps:
       - name: Print inputs passed to the reusable workflow
-        id: step1
         run: |
           echo "Python Version: $${{ matrix.python-version }}"
+      - name: call
+        uses: TheRealZoidberg/called_test/blob/main/.github/workflows/called.yml@main
+
 
