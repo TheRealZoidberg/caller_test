@@ -9,15 +9,8 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
         
   print:
-    runs-on: ubuntu-latest
-    outputs:
-      some_var: ${{ steps.step1.outputs.some_var }}
-      another_var: ${{ steps.step1.outputs.another_var }}   
-    steps:
-      - name: Print inputs passed to the reusable workflow
-        run: |
-          echo "Python Version: $${{ matrix.python-version }}"
-      - name: call
-        uses: TheRealZoidberg/called_test/blob/main/.github/workflows/called.yml@main
+    uses: TheRealZoidberg/called_test/blob/main/.github/workflows/called.yml@main 
+    run: echo "Python Version:  "${{ matrix.python-version }}"
+
 
 
