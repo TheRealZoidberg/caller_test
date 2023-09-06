@@ -3,12 +3,9 @@ on:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: call it
-        uses: TheRealZoidberg/called_test/.github/workflows/called.yml@main 
-        with:
-          pytho-version: '3.9'
+    uses: TheRealZoidberg/called_test/.github/workflows/called.yml@main 
+    with:
+      python-version: '3.9'
         
 
 
