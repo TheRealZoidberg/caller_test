@@ -1,0 +1,8 @@
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    uses: TheRealZoidberg/called_test/.github/workflows/called.yml@main 
+    with:
+      python-version: ${{ vars.PYTHON_VERSION }}
